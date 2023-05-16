@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>carros</title>
+    <link href="../META-INF/css/style.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto&display=swap" rel="stylesheet">
+    <script src="../META-INF/js/script.js"></script>
+</head>
+<body>
+<header class="header form">
+    <h1 class="form header-h1 "> Cadastro de veículos</h1>
+</header>
+<article class="form " >
+    <form class="form form-bg " name="formulario" >
+            <!--  modelo  -->
+        <section class="formulario-digitado primeiro-form">
+            <input type="text" name="modelo" id="modelo-veiculo" placeholder="modelo do veiculo">
+            <label for="modelo-veiculo"></label>
+        </section>
+            <!--    cor    -->
+        <section class="formulario-digitado ">
+            <input type="text" name="cor" id="cor-veiculo" placeholder="cor do veiculo">
+            <label for="cor-veiculo"></label>
+        </section>
+<!--    marca    -->
+        <section class="formulario-digitado"  >
+            <label for="marcas-veiculo">
+                <select id="marcas-veiculo" name="marcas">
+                    <option value="">escolha...</option>
+                    <option value="Volkswagen">Volkswagen</option>
+                    <option value="Chevrolet">Chevrolet</option>
+                    <option value="Hyundai">Hyundai</option>
+                    <option value="Citröen">Citröen</option>
+                </select>
+            </label>
+        </section>
+<!--   ano     -->
+        <section class="formulario-digitado ">
+
+            <input name="ano"
+                   oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                   type = "number"
+                   placeholder="Ano do carro"
+                   maxlength = "4"
+            id="ano-veiculo"
+            >
+            <label for="ano-veiculo"></label>
+        </section>
+
+<!--    ja batido    -->
+
+<section class="formulario-digitado carro-batido">
+    <div class="form"><label class="label-texto">O carro ja foi batido?</label></div>
+
+    <div >
+        <input type="radio" id="sim" name="batido" value="sim" >
+        <label for="sim" class="label-texto">sim</label>
+    </div>
+
+    <div class="radio">
+        <input type="radio" id="nao" name="batido" value="nao">
+        <label for="nao" class="label-texto">não</label>
+    </div>
+
+</section>
+        <!--    nome do proprietario-->
+        <section class="formulario-digitado">
+            <input type="text" id="nome-proprietario" placeholder="nome do proprietario" name="proprietario">
+            <label for="nome-proprietario"></label>
+        </section>
+        <button type="button" onreset="validar()" class="btn-enviar formulario-digitado " id="btn-enviar" onclick="enviar()">Enviar</button>
+    </form>
+
+
+</article>
+<!--tabela-->
+<article class="form ">
+    <section class="tabela-container">
+        <div class="button-container">
+            <button class="btn-enviar" id="excluir-tabela" onclick="excluir()">Excluir</button>
+        </div>
+
+        <table>
+            <caption><h2 class="titulo-tabela"> tabela de veículos</h2></caption>
+            <thead>
+            <tr>
+                <th class="conteudo"  >modelo do veículo</th>
+                <th class="conteudo">cor do veículo</th>
+                <th class="conteudo">marca do veículo</th>
+                <th class="conteudo">ano do veículo</th>
+                <th class="conteudo">já foi batido</th>
+                <th class="conteudo">Nome do proprietário</th>
+            </tr>
+            </thead>
+            <tbody id="table-boddy">
+
+            </tbody>
+            <tfoot><tr>
+                <th class="conteudo">total de veiculos cadastrados</th>
+
+                <td  class="tabela-resposta" id="contar" colspan="5">0</td>
+            </tr>
+            </tfoot>
+
+        </table>
+
+    </section>
+
+
+</article>
+
+</body>
+</html>
